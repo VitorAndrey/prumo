@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { ScrollView, Text, View } from "react-native";
 
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -7,10 +7,15 @@ import * as yup from "yup";
 import { Controller, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
+import { useNavigation } from "@react-navigation/native";
+import { AuthNavigationRoutesProps } from "@routes/auth.routes";
+
 import { Input } from "@ui/Input";
 import { InputErrorMessage } from "@layout/InputErrorMessage";
 import { UserContext } from "@contexts/UserContext";
 import { userLogin } from "@services/authentication";
+import { Button } from "@ui/Button";
+import { CloseHeader } from "@layout/CloseHeader";
 
 const schema = yup
   .object({
@@ -31,6 +36,7 @@ export function Login() {
   const [isLoginLoading, setIsLoginLoading] = useState<boolean>(false);
 
   const { handleSetUser } = useContext(UserContext);
+  const navigation = useNavigation<AuthNavigationRoutesProps>();
 
   const {
     control,
@@ -59,8 +65,14 @@ export function Login() {
     }
   };
 
+  function handleNavigateToEntryPage() {
+    navigation.navigate("EntryPage");
+  }
+
   return (
-    <View className="flex-1">
+    <SafeAreaView className="flex-1">
+      <CloseHeader onClose={handleNavigateToEntryPage} />
+
       <ScrollView
         contentContainerStyle={{
           flexGrow: 1,
@@ -98,14 +110,11 @@ export function Login() {
           />
           <InputErrorMessage message={errors.password?.message} />
 
-          <TouchableOpacity
-            className="mt-6 self-center"
-            onPress={handleSubmit(onSubmit)}
-          >
+          <Button className="mt-6 self-center" onPress={handleSubmit(onSubmit)}>
             <Text>{isLoginLoading ? "Carregando..." : "Avançar"}</Text>
-          </TouchableOpacity>
+          </Button>
         </View>
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 }

@@ -1,26 +1,25 @@
-import { useContext, useState } from "react";
-import { Text } from "@ui/Text";
 import { View } from "react-native";
-import { Header } from "@layout/Header";
-import { Title } from "@layout/Title";
-import { Button } from "@ui/Button";
+import { useContext, useState } from "react";
+
 import { UserContext } from "@contexts/UserContext";
-import CloseBtn from "@ui/CloseBtn";
-import { CloseHeader } from "@layout/CloseHeader";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { SelectList } from "react-native-dropdown-select-list";
+
+import { Text } from "@ui/Text";
+import { Button } from "@ui/Button";
+import { Title } from "@layout/Title";
+import { Header } from "@layout/Header";
+import { CloseHeader } from "@layout/CloseHeader";
 
 export function Order() {
   const [selected, setSelected] = useState("");
   const [isOrdering, setIsOrdering] = useState<boolean>(false);
 
   const stores = [
-    { key: "1", value: "Mobiles" },
-    { key: "2", value: "Appliances" },
-    { key: "3", value: "Cameras" },
-    { key: "4", value: "Computers" },
-    { key: "5", value: "Vegetables" },
-    { key: "6", value: "Diary Products" },
-    { key: "7", value: "Drinks" },
+    { key: "1", value: "Fornecedor 1" },
+    { key: "2", value: "Fornecedor 2" },
+    { key: "3", value: "Fornecedor 3" },
+    { key: "4", value: "Fornecedor 4" },
   ];
 
   const food = [
@@ -40,7 +39,7 @@ export function Order() {
   }
 
   return (
-    <View className="flex-1">
+    <SafeAreaView className="flex-1">
       <Header />
 
       <Title>{isOrdering ? "Registrar Pedido" : "Pedidos"}</Title>
@@ -81,6 +80,6 @@ export function Order() {
           <Button className="self-center my-8">Registrar</Button>
         </View>
       )}
-    </View>
+    </SafeAreaView>
   );
 }

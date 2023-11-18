@@ -1,16 +1,15 @@
-import { Header } from "@layout/Header";
-import { Title } from "@layout/Title";
+import { SafeAreaView } from "react-native-safe-area-context";
+
 import { Text } from "@ui/Text";
-import { View } from "react-native";
+import { Title } from "@layout/Title";
+import { Header } from "@layout/Header";
 
 export function Supplier() {
   return (
-    <View className="flex-1">
+    <SafeAreaView className="flex-1">
       <Header />
 
       <Title>Fornecedores</Title>
-
-      <Text>Supplier</Text>
-    </View>
+    </SafeAreaView>
   );
 }

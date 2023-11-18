@@ -1,13 +1,21 @@
-import { View, ViewProps } from "react-native";
+import { Image, View, ViewProps } from "react-native";
 import { twMerge } from "tailwind-merge";
 
-type AvatarProps = ViewProps & {};
+type AvatarProps = ViewProps & {
+  url?: string;
+};
 
-export function Avatar({ className, ...rest }: AvatarProps) {
+export function Avatar({
+  className,
+  url = "https://github.com/Jhon.png",
+  ...rest
+}: AvatarProps) {
   return (
     <View
-      className={twMerge("bg-red-500 h-10 w-10 rounded-full", className)}
+      className={twMerge("h-10 w-10 rounded-full overflow-hidden", className)}
       {...rest}
-    ></View>
+    >
+      <Image source={{ uri: url }} className="w-full h-full" />
+    </View>
   );
 }
