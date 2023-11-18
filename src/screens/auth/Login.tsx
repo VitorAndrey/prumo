@@ -21,7 +21,7 @@ const schema = yup
     password: yup
       .string()
       .required("Insira sua Senha.")
-      .min(8, "A senha deve ter no mínimo 8 caracteres."),
+      .min(3, "A senha deve ter no mínimo 3 caracteres."),
   })
   .required();
 

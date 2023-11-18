@@ -1,13 +1,13 @@
 import { Header } from "@layout/Header";
-import { Text } from "@ui/Text";
+import { Title } from "@layout/Title";
 import { View } from "react-native";
 
 export function History() {
   return (
-    <View>
+    <View className="flex-1">
       <Header />
 
-      <Text>History</Text>
+      <Title>Histórico</Title>
     </View>
   );
 }
