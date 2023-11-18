@@ -13,7 +13,7 @@ import { Avatar } from "@ui/Avatar";
 import { CloseHeader } from "@layout/CloseHeader";
 
 export function Profile() {
-  const { handleSetUser } = useContext(UserContext);
+  const { handleSetUser, userInfo } = useContext(UserContext);
 
   const navigation = useNavigation<AppNavigationRoutesProps>();
 
@@ -32,15 +32,14 @@ export function Profile() {
       <Avatar className="w-36 h-36 self-center" />
 
       <View className="pt-12 px-8 gap-2 flex-col flex-1">
-        <Text>Fulano de tal</Text>
-        <Text>Fulano de tal</Text>
-        <Text>Fulano de tal</Text>
-        <Text>Fulano de tal</Text>
-        <Text>Fulano de tal</Text>
+        <Text>{userInfo?.name}</Text>
+        <Text>{userInfo?.name}</Text>
+        <Text>{userInfo?.name}</Text>
+        <Text>{userInfo?.name}</Text>
       </View>
 
       <Button className="self-center my-8" onPress={handleLogOut}>
-        Log Out
+        Sair
       </Button>
     </SafeAreaView>
   );

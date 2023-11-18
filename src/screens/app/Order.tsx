@@ -10,6 +10,7 @@ import { Button } from "@ui/Button";
 import { Title } from "@layout/Title";
 import { Header } from "@layout/Header";
 import { CloseHeader } from "@layout/CloseHeader";
+import { getFirstName } from "@utils/getFirstName";
 
 export function Order() {
   const [selected, setSelected] = useState("");
@@ -47,7 +48,7 @@ export function Order() {
       {!isOrdering ? (
         <View className="flex-1 items-center justify-center gap-8">
           <View className="items-center">
-            <Text>Olá, {userInfo?.name}!</Text>
+            <Text>Olá, {getFirstName(userInfo?.name)}!</Text>
             <Text>Gostaria de iniciar um pedido?</Text>
           </View>
 

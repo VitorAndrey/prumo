@@ -11,10 +11,10 @@ export const UserContext = createContext({} as UserContextType);
 
 export function UserContextProvider({ children }: { children: ReactNode }) {
   const [userInfo, setUserInfo] = useState<User | null>({
-    name: "Fulano",
+    name: "Fulano da Silva",
     email: "fulano@gmail.com",
     password: "123",
-    imageUrl: "",
+    imageUrl: "https://github.com/Melissa.png",
   });
 
   const isUserLogged = userInfo ? true : false;
