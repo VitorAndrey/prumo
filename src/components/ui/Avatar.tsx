@@ -16,7 +16,10 @@ export function Avatar({ className, uri, ...rest }: AvatarProps) {
 
   return (
     <View
-      className={twMerge("h-10 w-10 rounded-full overflow-hidden", className)}
+      className={twMerge(
+        "bg-zinc-300 h-10 w-10 rounded-full overflow-hidden",
+        className
+      )}
       {...rest}
     >
       <Image source={{ uri }} className="w-full h-full" />

@@ -6,6 +6,12 @@ export type User = {
   role: "manager" | "foreman";
 };
 
+export type Supplier = {};
+
+export type Order = {
+  date: string;
+};
+
 export type UserLogin = {
   email: string;
   password: string;

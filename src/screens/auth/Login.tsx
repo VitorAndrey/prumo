@@ -98,6 +98,7 @@ export function Login() {
                 onChangeText: onChange,
                 onBlur: onBlur,
                 value: value,
+                placeholder: "E-mail:",
               }}
             />
           )}
@@ -113,6 +114,7 @@ export function Login() {
                 onChangeText: onChange,
                 onBlur: onBlur,
                 value: value,
+                placeholder: "Senha:",
               }}
             />
           )}
