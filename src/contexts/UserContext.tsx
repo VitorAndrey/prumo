@@ -15,6 +15,7 @@ export function UserContextProvider({ children }: { children: ReactNode }) {
     email: "fulano@gmail.com",
     password: "123",
     imageUrl: "https://github.com/Melissa.png",
+    role: "manager",
   });
 
   const isUserLogged = userInfo ? true : false;
