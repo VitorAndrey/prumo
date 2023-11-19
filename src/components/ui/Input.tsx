@@ -21,7 +21,7 @@ export function Input({ containerProps, inputProps }: InputProps) {
     >
       <TextInput
         className={twMerge(
-          "h-12 flex-1 px-2 font-poppins-400 text-base",
+          "h-12 flex-1 font-poppins-400 text-sm",
           inputProps?.inputClass
         )}
         {...inputProps}

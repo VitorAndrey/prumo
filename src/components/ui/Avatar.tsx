@@ -5,12 +5,14 @@ import { UserContext } from "@contexts/UserContext";
 
 import { twMerge } from "tailwind-merge";
 
-type AvatarProps = ViewProps & {};
+type AvatarProps = ViewProps & {
+  uri?: string;
+};
 
-export function Avatar({ className, ...rest }: AvatarProps) {
+export function Avatar({ className, uri, ...rest }: AvatarProps) {
   const { userInfo } = useContext(UserContext);
 
-  const uri = userInfo?.imageUrl || "https://github.com/Jhon.png";
+  if (!uri) uri = userInfo?.imageUrl || "https://github.com/Jhon.png";
 
   return (
     <View

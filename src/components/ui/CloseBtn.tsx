@@ -7,7 +7,10 @@ type CloseBtnProps = TouchableOpacityProps & {};
 
 export default function CloseBtn({ className, ...rest }: CloseBtnProps) {
   return (
-    <TouchableOpacity {...rest} className={twMerge("", className)}>
+    <TouchableOpacity
+      {...rest}
+      className={twMerge("w-6 h-6 items-center justify-center", className)}
+    >
       <X color="black" />
     </TouchableOpacity>
   );

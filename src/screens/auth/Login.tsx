@@ -16,6 +16,7 @@ import { UserContext } from "@contexts/UserContext";
 import { userLogin } from "@services/authentication";
 import { Button } from "@ui/Button";
 import { CloseHeader } from "@layout/CloseHeader";
+import { TextBtn } from "@ui/TextBtn";
 
 const schema = yup
   .object({
@@ -69,50 +70,65 @@ export function Login() {
     navigation.navigate("EntryPage");
   }
 
+  function handleNavigateToRegister() {
+    navigation.navigate("Register");
+  }
+
   return (
     <SafeAreaView className="flex-1">
       <CloseHeader onClose={handleNavigateToEntryPage} />
 
       <ScrollView
+        keyboardShouldPersistTaps="always"
         contentContainerStyle={{
           flexGrow: 1,
+          justifyContent: "center",
+          paddingHorizontal: 40,
+          paddingVertical: 20,
         }}
         showsVerticalScrollIndicator={false}
       >
-        <View className="flex-1 justify-center p-10">
-          <Controller
-            control={control}
-            render={({ field: { onChange, onBlur, value } }) => (
-              <Input
-                inputProps={{
-                  onChangeText: onChange,
-                  onBlur: onBlur,
-                  value: value,
-                }}
-              />
-            )}
-            name="email"
-          />
-          <InputErrorMessage message={errors.email?.message} />
+        <Text className="self-center mb-10">Logo</Text>
 
-          <Controller
-            control={control}
-            render={({ field: { onChange, onBlur, value } }) => (
-              <Input
-                inputProps={{
-                  onChangeText: onChange,
-                  onBlur: onBlur,
-                  value: value,
-                }}
-              />
-            )}
-            name="password"
-          />
-          <InputErrorMessage message={errors.password?.message} />
+        <Controller
+          control={control}
+          render={({ field: { onChange, onBlur, value } }) => (
+            <Input
+              inputProps={{
+                onChangeText: onChange,
+                onBlur: onBlur,
+                value: value,
+              }}
+            />
+          )}
+          name="email"
+        />
+        <InputErrorMessage message={errors.email?.message} />
 
-          <Button className="mt-6 self-center" onPress={handleSubmit(onSubmit)}>
-            <Text>{isLoginLoading ? "Carregando..." : "Avançar"}</Text>
-          </Button>
+        <Controller
+          control={control}
+          render={({ field: { onChange, onBlur, value } }) => (
+            <Input
+              inputProps={{
+                onChangeText: onChange,
+                onBlur: onBlur,
+                value: value,
+              }}
+            />
+          )}
+          name="password"
+        />
+        <InputErrorMessage message={errors.password?.message} />
+
+        <Button className="mt-6 self-center" onPress={handleSubmit(onSubmit)}>
+          <Text>{isLoginLoading ? "Carregando..." : "Avançar"}</Text>
+        </Button>
+
+        <View className="flex-row items-center justify-center gap-1 mt-4">
+          <Text>Não tem conta?</Text>
+          <TextBtn onPress={handleNavigateToRegister}>
+            <Text>Cadastre-se!</Text>
+          </TextBtn>
         </View>
       </ScrollView>
     </SafeAreaView>

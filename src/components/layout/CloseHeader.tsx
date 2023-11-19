@@ -7,7 +7,7 @@ type CloseHeaderProps = {
 
 export function CloseHeader({ onClose }: CloseHeaderProps) {
   return (
-    <View className="w-full h-14 justify-center p-4 mt-2 mb-4">
+    <View className="w-full h-14 justify-center px-4 py-2">
       <CloseBtn onPress={onClose} />
     </View>
   );

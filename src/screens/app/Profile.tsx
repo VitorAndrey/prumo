@@ -33,9 +33,9 @@ export function Profile() {
 
       <View className="pt-12 px-8 gap-2 flex-col flex-1">
         <Text>{userInfo?.name}</Text>
-        <Text>{userInfo?.name}</Text>
-        <Text>{userInfo?.name}</Text>
-        <Text>{userInfo?.name}</Text>
+        <Text>{userInfo?.email}</Text>
+        <Text>{userInfo?.password}</Text>
+        <Text>{userInfo?.role}</Text>
       </View>
 
       <Button className="self-center my-8" onPress={handleLogOut}>
